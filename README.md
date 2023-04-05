@@ -25,7 +25,7 @@ for more information about final models and production tables Structure, check <
 
 ## Final Dashboard:
 
-visit [Dashboard-Link](https://lookerstudio.google.com/reporting/611cdb24-b7fd-4c26-bed3-341d31878ed2)
+visit [Dashboard-Link](https://lookerstudio.google.com/s/hEWMeceunA8)
 
 ## How to Make it Work?
 
