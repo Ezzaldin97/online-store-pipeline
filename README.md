@@ -25,7 +25,7 @@ for more information about final models and production tables Structure, check <
 
 ## Final Dashboard:
 
-visit 
+visit [Dashboard-Link](https://lookerstudio.google.com/reporting/611cdb24-b7fd-4c26-bed3-341d31878ed2)
 
 ## How to Make it Work?
 
@@ -65,5 +65,5 @@ terraform apply -var="project=<your-gcp-project-id>"
   - to setup the python virtual environment and install all dependancies run `make venv`
   - check <a href = "prefect/README.md">prefect README</a> to setup the blocks and dependancies before running the flow.
   - run the flow using `make run`
-6. the final tables will be created at online_store_data in [BigQuery](https://cloud.google.com/bigquery).
+6. the final tables will be created at online_store_data dataset in [BigQuery](https://cloud.google.com/bigquery).
 7. build the dashboard.
