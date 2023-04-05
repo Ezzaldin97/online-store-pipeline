@@ -56,8 +56,14 @@ terraform init
 terraform plan -var="project=<your-gcp-project-id>"
 terraform apply -var="project=<your-gcp-project-id>"
 ```
-3. Go to fake-data-generator Directory and run the following to commands
+4. Go to fake-data-generator Directory and run the following to commands
   - run `make run_img` create and run the postgres docker image(Source System).
   - run `make run` create data and insert it to postgres.
 
-3. 
+5. Setup your Orchestration
+  - Go to prefect Directory
+  - to setup the python virtual environment and install all dependancies run `make venv`
+  - check <a href = "prefect/README.md">prefect README</a> to setup the blocks and dependancies before running the flow.
+  - run the flow using `make run`
+6. the final tables will be created at online_store_data in [BigQuery](https://cloud.google.com/bigquery).
+7. build the dashboard.
