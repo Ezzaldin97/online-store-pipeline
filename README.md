@@ -30,13 +30,34 @@ visit
 ## How to Make it Work?
 
 1. Setup your Google Cloud environment
-- Create a [Google Cloud Platform project](https://console.cloud.google.com/cloud-resource-manager)
-- Configure Identity and Access Management (IAM) for the service account, giving it the following privileges: BigQuery Admin, Storage Admin and Storage Object Admin
-- Download the JSON credentials and save it, e.g. to `~/.gc/<credentials>`
-- Install the [Google Cloud SDK](https://cloud.google.com/sdk/docs/install-sdk)
-- Let the [environment variable point to your GCP key](https://cloud.google.com/docs/authentication/application-default-credentials#GAC), authenticate it and refresh the session token
+  - Create a [Google Cloud Platform project](https://console.cloud.google.com/cloud-resource-manager)
+  - Configure Identity and Access Management (IAM) for the service account, giving it the following privileges: BigQuery Admin, Storage Admin and Storage Object Admin
+  - Download the JSON credentials and save it, e.g. to `~/.gc/<credentials>`
+  - Install the [Google Cloud SDK](https://cloud.google.com/sdk/docs/install-sdk)
+  - Let the [environment variable point to your GCP key](https://cloud.google.com/docs/authentication/application-default-credentials#GAC), authenticate it and refresh the session token
 ```bash
 export GOOGLE_APPLICATION_CREDENTIALS=<path_to_your_credentials>.json
 gcloud auth activate-service-account --key-file $GOOGLE_APPLICATION_CREDENTIALS
 gcloud auth application-default login
 ```
+2. Setup your infrastructure
+  - Assuming you are using Linux AMD64 run the following commands to install Terraform - if you are using a different OS please choose the correct version [here](https://developer.hashicorp.com/terraform/downloads) and exchange the download link and zip file name
+```bash
+sudo apt-get install unzip
+cd ~/bin
+wget https://releases.hashicorp.com/terraform/1.4.1/terraform_1.4.1_linux_amd64.zip
+unzip terraform_1.4.1_linux_amd64.zip
+rm terraform_1.4.1_linux_amd64.zip
+```
+3. To initiate, plan and apply the infrastructure, adjust and run the following Terraform commands
+```bash
+cd terraform/
+terraform init
+terraform plan -var="project=<your-gcp-project-id>"
+terraform apply -var="project=<your-gcp-project-id>"
+```
+3. Go to fake-data-generator Directory and run the following to commands
+  - run `make run_img` create and run the postgres docker image(Source System).
+  - run `make run` create data and insert it to postgres.
+
+3. 
